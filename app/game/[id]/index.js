@@ -6,14 +6,12 @@ import {
   Text,
   View,
 } from "react-native";
-// import { Score } from "../components/Score";
 import { Link, Stack } from "expo-router";
-import { HomeIcon } from "../components/Icons";
 import { useLocalSearchParams } from "expo-router";
-import { Screen } from "../components/Screen";
+import { Screen } from "@/components/Screen";
 import { useState, useEffect } from "react";
-import { getGameDetails } from "../lib/metacritic";
-import { Score } from "../components/Score";
+import { getGameDetails } from "@/lib/metacritic";
+import { Score } from "@/components/Score";
 
 export default function Detail() {
   const { id } = useLocalSearchParams();
@@ -26,6 +24,7 @@ export default function Detail() {
   }, [id]);
 
   return (
+    
     <Screen>
       {gameInfo === null ? (
         <ActivityIndicator color="#bf9d60" size={"large"} />
