@@ -9,14 +9,14 @@ const ClaimsList = () => {
       title: "Descubierto",
       description: "Reclamación por descubierto bancario",
     },
-    {
-      id: "2",
-      title: "Comisiones",
-      description: "Reclamación por comisiones indebidas",
-    },
+    // {
+    //   id: "2",
+    //   title: "Comisiones",
+    //   description: "Reclamación por comisiones indebidas",
+    // },
   ];
 
-  const renderItem = ({ item }) => (
+  const renderCards = ({ item }) => (
     <View style={styles.item}>
       <Text style={styles.title}>{item.title}</Text>
       <Text>{item.description}</Text>
@@ -26,7 +26,7 @@ const ClaimsList = () => {
   return (
     <FlatList
       data={claims}
-      renderItem={renderItem}
+      renderItem={renderCards}
       keyExtractor={(item) => item.id}
     />
   );

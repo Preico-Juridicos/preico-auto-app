@@ -6,7 +6,7 @@ import {
   SectionList,
   SectionListData,
 } from "react-native";
-import MyClaimsCarousel from "../components/MyClaimsCarousel";
+import MyClaims from "../components/MyClaims";
 import ClaimsList from "../components/ClaimsList";
 // import HelloWave from "../../components/HelloWave";
 
@@ -18,7 +18,7 @@ const HomeScreen = () => {
       renderHeader: () => (
         <View>
           <Text>Mis Reclamaciones</Text>
-          <MyClaimsCarousel />
+          <MyClaims />
         </View>
       ),
     },
@@ -37,7 +37,7 @@ const HomeScreen = () => {
       data: [],
       renderHeader: () => (
         <View>
-          <Text>Test</Text>
+          {/* <Text>Test</Text> */}
           {/* <HelloWave /> */}
         </View>
       ),
