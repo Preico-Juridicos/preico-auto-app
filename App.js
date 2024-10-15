@@ -1,27 +1,32 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View } from "react-native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { ThemeProvider } from "./src/contexts/ThemeContext";
+import HomeScreen from "./src/screens/HomeScreen";
+import ClaimsScreen from "./src/screens/ClaimsScreen";
+import MyClaimsScreen from "./src/screens/MyClaimsScreen";
+import CustomDrawerContent from "./src/components/CustomDrawerContent";
 
-import Main from "./components/Main";
+const Drawer = createDrawerNavigator();
 
-
-export function App() {
+export default function App() {
   return (
-    <SafeAreaProvider>
-      <View style={styles.container}>
-        <StatusBar style="light" />
-        <Main />
-      </View>
-    </SafeAreaProvider>
+    <ThemeProvider>
+      <NavigationContainer>
+        <Drawer.Navigator
+          drawerContent={(props) => <CustomDrawerContent {...props} />}
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: "#bf9d60",
+            },
+            headerTintColor: "#fff",
+          }}
+        >
+          <Drawer.Screen name="Inicio" component={HomeScreen} />
+          <Drawer.Screen name="Reclamaciones" component={ClaimsScreen} />
+          <Drawer.Screen name="Mis Reclamaciones" component={MyClaimsScreen} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </ThemeProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#000",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingHorizontal: 12
-  },
-});
